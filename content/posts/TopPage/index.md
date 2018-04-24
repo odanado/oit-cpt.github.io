@@ -1,7 +1,7 @@
 ---
 title: "大阪工業大学 競技プログラミングチームについて"
 cover: "/logos/logo-1024.png"
-date: "31/12/2099"
+date: "2099-12-31"
 slug: hello-world
 category: "紹介"
 tags:
