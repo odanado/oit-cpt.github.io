@@ -5,17 +5,19 @@
     align-content: center;
     background-color: $md-primary-color;
     padding: 10px 5px 5px;
-
+    
     .notice-container {
-        display: flex;
+        display: block;
+        text-align: center;
         align-content: center;
         align-items: center;
-        margin-top: 25px;
+        // margin-top: 25px;
 
         .copyright {
-            display: flex;
+            display: block;
             flex: 1;
             justify-content: flex-start;
+            color: $md-secondary-color;
 
             @media (max-width: 640px - 1px) {
                 justify-content: center;
@@ -34,8 +36,8 @@
         }
 
         .based-on {
-            display: flex;
-
+            display: block;
+            color: $md-secondary-color;
             @media (max-width: 640px - 1px) {
                 display: none;
             }
@@ -59,3 +61,4 @@
     right: 0;
     z-index: 15;
 }
+

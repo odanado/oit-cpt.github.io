@@ -5,7 +5,7 @@ module.exports = {
   siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
   siteUrl: "https://oit-cpt.github.io", // Domain of your website without pathPrefix.
   pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
-  fixedFooter: true, // Whether the footer component is fixed, i.e. always visible
+  fixedFooter: false, // Whether the footer component is fixed, i.e. always visible
   siteDescription: "このサイトは大阪工業大学 競技プログラミングチーム (oit-cpt) の公式サイトです！", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
   // siteFBAppID: "1825356251115265", // FB Application ID for using app insights
