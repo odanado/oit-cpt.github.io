@@ -15,27 +15,26 @@ class Footer extends Component {
       return null;
     }
     return (
-      <footer className={fixedFooter ? "footer footer-fixed" : "footer"}>
-        {userLinks ? <UserLinks config={config} labeled /> : null}
-        <div className="notice-container">
-          <div className="copyright">
-            <h4>{copyright}</h4>
-          </div>
 
-          <div className="rss">
+      <footer className={fixedFooter ? "footer footer-fixed" : "footer"}>
+        <div className="notice-container">
+        <div className="rss">
             <Link to={url}>
-              <Button flat secondary iconClassName="fa fa-rss">
-                Subscribe
+              <Button flat secondary iconClassName="fa fa-rss">-                Subscribe
               </Button>
             </Link>
+         </div>
+          <div className="copyright">
+            <div>{copyright}</div>
           </div>
+
           <div className="based-on">
-            <h4>
+            <div>
               Based on{" "}
               <a href="https://github.com/Vagr9K/gatsby-material-starter">
                 Gatsby Material Starter
               </a>.
-            </h4>
+            </div>
           </div>
         </div>
       </footer>
@@ -44,3 +43,4 @@ class Footer extends Component {
 }
 
 export default Footer;
+
