@@ -1,0 +1,55 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@0.0.4
+
+jobs:
+  build:
+    executor: node/node
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run:
+                name: install dependency
+                command: yarn
+      - run:
+          name: build docs
+          command: yarn build
+      - persist_to_workspace:
+          root: .
+          paths:
+              - ./public
+  deploy:
+    machine: true
+    steps:
+      - attach_workspace:
+          at: .
+      - add_ssh_keys:
+          fingerprints:
+            - "c8:42:91:82:58:74:26:7b:b6:65:e2:a6:a9:6d:af:b5"
+      - run:
+          name: initialize git
+          command: |
+            git init .
+            git config --global user.name "circle ci"
+            git config --global user.email "odan3240@gmail.com"
+          working_directory: ./public
+      - run:
+          name: deploy to gh-pages
+          command: |
+            git add ./
+            git commit -m 'Update [ci skip]'
+            git push -f git@github.com:oit-cpt/oit-cpt.github.io.git master
+          working_directory: ./public
+
+workflows:
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: source
