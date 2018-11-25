@@ -27,7 +27,7 @@ jobs:
           at: .
       - add_ssh_keys:
           fingerprints:
-            - "81:a6:53:45:aa:0b:c9:bc:e4:e0:08:1d:59:1f:b5:24"
+            - "c8:42:91:82:58:74:26:7b:b6:65:e2:a6:a9:6d:af:b5"
       - run:
           name: initialize git
           command: |
