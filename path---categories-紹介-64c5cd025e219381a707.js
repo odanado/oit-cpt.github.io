@@ -1,0 +1,2 @@
+webpackJsonp([0xbc59016ff4e9],{400:function(o,t){o.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{fields:{slug:"/hello-world"},excerpt:"Hello World! 大阪工業大学 競技プログラミングチーム (oit-cpt) は、大阪工業大学情報科学部の学生プロジェクトです。競技プログラミング好きの部員が、週に2回を目処に勉強会などの活動を行っています。",timeToRead:1,frontmatter:{title:"大阪工業大学 競技プログラミングチームについて",tags:["紹介"],cover:"/logos/logo-1024.png",date:"2099-12-31"}}}]}},pathContext:{category:"紹介"}}}});
+//# sourceMappingURL=path---categories-紹介-64c5cd025e219381a707.js.map
