@@ -1,0 +1,55 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@0.0.4
+
+jobs:
+  build:
+    executor: node/node
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run:
+                name: install dependency
+                command: yarn
+      - run:
+          name: build docs
+          command: yarn build
+      - persist_to_workspace:
+          root: .
+          paths:
+              - ./public
+  deploy:
+    machine: true
+    steps:
+      - attach_workspace:
+          at: .
+      - add_ssh_keys:
+          fingerprints:
+            - "28:0c:38:05:f8:9c:81:b0:ed:23:ef:95:54:fa:96:91"
+      - run:
+          name: initialize git
+          command: |
+            git init .
+            git config --global user.name "circle ci"
+            git config --global user.email "odan3240@gmail.com"
+          working_directory: ./public
+      - run:
+          name: deploy to gh-pages
+          command: |
+            git add ./
+            git commit -m 'Update [ci skip]'
+            git push -f git@github.com:odanado/vuepress-sandbox.git master
+          working_directory: ./public
+
+workflows:
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: source
